@@ -6,7 +6,7 @@ library(ggplot2)
 library(RColorBrewer)
 library(cowplot)
 
-setwd("/Volumes/GoogleDrive/My Drive/ITD")
+setwd("/Users/timittner/Library/CloudStorage/GoogleDrive-tji2107@columbia.edu/My Drive/ITD")
 
 rm(list = ls())
 
@@ -64,7 +64,6 @@ pop_data <- pop_data[which(pop_data$year>=1978),] %>%
 
 g1 <- ggplot(pop_data, aes(x=year, 
                            y = pop_median, 
-                           linetype = urbanicity, 
                            color = urbanicity,
                            group = urbanicity)) +
   geom_line(size = 2) +
@@ -85,51 +84,13 @@ g1 <- ggplot(pop_data, aes(x=year,
         axis.title.y = element_text(size=15,
                                     family = "serif"),
         legend.title=element_blank(),
-        legend.position=c(0.155,0.83),
+        legend.position=c(0.153,0.83),
         axis.title.x = element_blank()) +
-  scale_linetype_manual(labels=c("Rural (N=1976)",
-                                 "Small/mid metro (N=730)",
-                                 "Suburban (N=368)",
-                                 "Urban (N=64)"),
-                        values=c("solid","dotted","dashed","dotdash")) +
-  scale_color_manual(labels=c("Rural (N=1976)",
+  scale_color_manual(values = c("#ffb000","#648fff","#dc267f","#785ef0"),
+                     labels=c("Rural (N=1976)",
                               "Small/mid metro (N=730)",
                               "Suburban (N=368)",
-                              "Urban (N=64)"),
-                     values = brewer.pal(4, "Set1")) +
-  scale_x_discrete(breaks=c(1978,1983,1988,1993,1998,2003,2008,2013,2018),
-                   labels=c("1978","1983","1988","1993","1998","2003","2008","2013","2018"))
-
-g1 <- ggplot(pop_data, aes(x=year, 
-                           y = pop_median, 
-                           color = urbanicity,
-                           group = urbanicity)) +
-  geom_line(size = 2) +
-  ylab("Total Jail Population Rate") +
-  ggtitle(element_blank()) +
-  theme_bw() +
-  theme(legend.text = element_text(size=10,
-                                   family = "serif"),
-        axis.text.x = element_text(size=12,
-                                   family = "serif",
-                                   angle = 45, 
-                                   vjust = 1, 
-                                   hjust=1,
-                                   color = "black"),
-        axis.text.y = element_text(size=12,
-                                   family = "serif",
-                                   color = "black"),
-        axis.title.y = element_text(size=15,
-                                    family = "serif"),
-        legend.title=element_blank(),
-        legend.position=c(0.155,0.83),
-        axis.title.x = element_blank()) +
-  scale_colour_grey(labels=c("Rural (N=1976)",
-                              "Small/mid metro (N=730)",
-                              "Suburban (N=368)",
-                              "Urban (N=64)"),
-                    start = 0.1,
-                    end = 0.9) +
+                              "Urban (N=64)")) +
   scale_x_discrete(breaks=c(1978,1983,1988,1993,1998,2003,2008,2013,2018),
                    labels=c("1978","1983","1988","1993","1998","2003","2008","2013","2018"))
 
@@ -187,12 +148,11 @@ g2 <- ggplot(adm_data, aes(x=year,
         axis.title.x = element_blank(),
         axis.text.x = element_text(angle = 45, vjust = 1, hjust=1, color = "black"),
         axis.text.y = element_text(color = "black")) +
-  scale_colour_grey(labels=c("Rural (N=1976)",
-                             "Small/mid metro (N=730)",
-                             "Suburban (N=368)",
-                             "Urban (N=64)"),
-                    start = 0.1,
-                    end = 0.9) +
+  scale_color_manual(values = c("#ffb000","#648fff","#dc267f","#785ef0"),
+                     labels=c("Rural (N=1976)",
+                              "Small/mid metro (N=730)",
+                              "Suburban (N=368)",
+                              "Urban (N=64)")) +
   scale_x_discrete(breaks=c(1978,1983,1988,1993,1998,2003,2008,2013,2018),
                    labels=c("1978","1983","1988","1993","1998","2003","2008","2013","2018"))
 
@@ -250,12 +210,11 @@ g3 <- ggplot(pretrial_data, aes(x=year,
         axis.title.x = element_blank(),
         axis.text.x = element_text(angle = 45, vjust = 1, hjust=1, color = "black"),
         axis.text.y = element_text(color = "black")) +
-  scale_colour_grey(labels=c("Rural (N=1976)",
-                             "Small/mid metro (N=730)",
-                             "Suburban (N=368)",
-                             "Urban (N=64)"),
-                    start = 0.1,
-                    end = 0.9) +
+  scale_color_manual(values = c("#ffb000","#648fff","#dc267f","#785ef0"),
+                     labels=c("Rural (N=1976)",
+                              "Small/mid metro (N=730)",
+                              "Suburban (N=368)",
+                              "Urban (N=64)")) +
   scale_x_discrete(breaks=c(1978,1983,1988,1993,1998,2003,2008,2013,2018),
                    labels=c("1978","1983","1988","1993","1998","2003","2008","2013","2018"))
 
@@ -313,12 +272,11 @@ g4 <- ggplot(bw_data, aes(x=year,
         axis.title.x = element_blank(),
         axis.text.x = element_text(angle = 45, vjust = 1, hjust=1, color = "black"),
         axis.text.y = element_text(color = "black")) +
-  scale_colour_grey(labels=c("Rural (N=1976)",
-                             "Small/mid metro (N=730)",
-                             "Suburban (N=368)",
-                             "Urban (N=64)"),
-                    start = 0.1,
-                    end = 0.9) +
+  scale_color_manual(values = c("#ffb000","#648fff","#dc267f","#785ef0"),
+                     labels=c("Rural (N=1976)",
+                              "Small/mid metro (N=730)",
+                              "Suburban (N=368)",
+                              "Urban (N=64)")) +
   scale_x_discrete(breaks=c(1990,1995,2000,2005,2010,2015,2018),
                    labels=c("1990","1995","2000","2005","2010","2015","2018"))
 
