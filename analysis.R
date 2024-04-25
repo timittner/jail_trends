@@ -6,8 +6,6 @@ library(ggplot2)
 library(RColorBrewer)
 library(cowplot)
 
-setwd("/Users/timittner/Library/CloudStorage/GoogleDrive-tji2107@columbia.edu/My Drive/ITD")
-
 rm(list = ls())
 
 ################################################################################
